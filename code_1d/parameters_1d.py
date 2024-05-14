@@ -1,7 +1,7 @@
 import numpy as np      
 
 def parameters(num_types=1):
-    if num_types == 1:
+    if num_types == 1: ##one layer of soil
         #sandy deposit (B. Liu, 2015)
         mu = 1.27 * 10**7 #shear modulus [N/m^2]
         vp = 0.3 #poisson's ratio
@@ -15,7 +15,7 @@ def parameters(num_types=1):
         g = 9.81 #[m/s^2] #gravity accelleration
         D = 5.2 #[m] water depth
         
-    elif num_types == 2:
+    elif num_types == 2: ##two layers of soil
         #if [a, b], then a is property of medium sand and b of SBM
         d_10 = np.array([0.23,0.3])
         mu = np.array([1.0*10**5, 2.0 * 10**5]) #shear modulus [N/m^2] or [Pa]
@@ -36,10 +36,10 @@ def parameters(num_types=1):
     return beta, K_s, gamma_w, p, mu, labda
 
 def ini_fem():
-    L = 1.8 
-    m = 1800
-    p = 1 #p=1,k=0 -> hat basis-functions
-    k = 0
-    n_q = 1000
-    integrate=True
-    return L, m, p, k, n_q, integrate
+    Z = 1.8 #depth (z-direction)
+    m = 1800 #number of subdomains in z-direction
+    p = 1 #degree in z-direction #p=1,k=0 -> hat basis-functions
+    k = 0 #smoothness
+    n_q = 1000 #number of integration points
+    integrate=True #integration of reference element functions
+    return Z, m, p, k, n_q, integrate

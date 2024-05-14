@@ -471,7 +471,7 @@ if __name__ == "__main__":
     else:
         compr = "Compressible"
         
-    #Determine and plot (normalised) eps, P, u_z
+    #Plot (normalised) eps, P, u_z
     plot_functions_1d.plot_pressure_norm_data(z[-1], set_coeff[:,2,-1,:,:], time[-1], gamma_w, H, Z, data_part, data_plot, label1, label2)
     plot_functions_1d.plot_norm(coeff_sol, dcoeff_sol, z, Z, time, gamma_w, compr) #set_coeff[2]
     plot_functions_1d.plot(coeff_sol, dcoeff_sol, z, time, compr) #set_coeff[2]

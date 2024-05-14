@@ -1,3 +1,4 @@
+#This part of the code is based on the assignments made for the TU Delft course WI4205 Applied Finite Elements in 2023 given by D. Toshniwal.
 import numpy as np
 from numpy.polynomial.legendre import leggauss as gaussquad
 from scipy.interpolate import _bspl as bspl

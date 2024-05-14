@@ -6,8 +6,8 @@ In this directory 'code_1d' the codes for computing the numerical results to the
   (D.Toshniwal, 2023).
 - File 'parameters_1d': the parameters of the model can be changed here.
 - File 'plot_functions_1d': the code to plot the one-dimensional solutions.
-- File 'model_1d_1layer': the code for deriving the 1D numerical solution using the 1D data of (B. Liu, 2015). Here one layer of soil is assumed.
+- File 'model_1d_1layer': the code for deriving the 1D numerical solution using the 1D data of (B. Liu, 2015). Here one layer of soil is assumed. There are three versions of the new model. The different versions can be find in my literature report (F.P.M. Klein, 2023).
   _Run this file for results._ 
 - File 'model_1d_2layers': the code for deriving the 1D numerical solution using the 1D data of (L. Zaat, 2022). Here two layer of different kind of soils is
-  assumed.
+  assumed. There are three versions of the new model. The different versions can be find in my literature report (F.P.M. Klein, 2023).
   _Run this file for results._

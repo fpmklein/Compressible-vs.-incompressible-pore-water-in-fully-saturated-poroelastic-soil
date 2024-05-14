@@ -24,7 +24,7 @@ def time_xticks(hour, minute, second):
 
 def data(ex = ''):
     xticks = np.array([])
-    if ex == 'boat_a':
+    if ex == 'boat_a': #(L. Zaat, 2022)
         #26-10-21 09:13:30
         #air pressure = 10212
         #P [m], t [s]
@@ -49,7 +49,7 @@ def data(ex = ''):
         xticks = np.array([ time_xticks(9,12,23), time_xticks(9,12,58), time_xticks(9,13,32),
                             time_xticks(9,14,7), time_xticks(9,14,42)])
         
-    elif ex == 'boat_b':
+    elif ex == 'boat_b': #(L. Zaat, 2022)
         #27-10-21 17:49:28
         #air pressure = 10212
         #P [m], t [s]
@@ -73,7 +73,7 @@ def data(ex = ''):
         xticks = np.array([ time_xticks(17,47,54), time_xticks(17,48,29), time_xticks(17,49,3),
                             time_xticks(17,49,38), time_xticks(17,50,12), time_xticks(17,50,47)])
         
-    elif ex == 'boat_c': #rws
+    elif ex == 'boat_c': #(L. Zaat, 2022)
         #28-10-21 15:41:56
         #P [m], t [s]
         a = np.array([  3.74, 3.74, 3.73, 3.73, 3.72,
@@ -107,7 +107,7 @@ def data(ex = ''):
                         time(15,42,41), time(15,42,46), time(15,42,48), time(15,42,52), time(15,42,54)])
         xticks = np.array([ time_xticks(15,40,36), time_xticks(15,41,11), time_xticks(15,41,46),
                             time_xticks(15,42,20), time_xticks(15,42,55)])    
-    elif ex == 'boat_d':
+    elif ex == 'boat_d': #(L. Zaat, 2022)
         #01-11-21 09:01:03
         #air pressure = 10212
         #P [m], t [s]
@@ -132,7 +132,7 @@ def data(ex = ''):
         xticks = np.array([ time_xticks(8,59,43), time_xticks(9,0,17), time_xticks(9,0,52),
                             time_xticks(9,1,26), time_xticks(9,2,1), time_xticks(9,2,36)]) 
      
-    elif ex == 'density': #lab
+    elif ex == 'density': #(B. Liu et al., 2015)
         #P_norm [Pa/Pa], z_norm [m/m]
         #when varying the density
         aDense_x = [0.54, 0.58, 0.67, 0.73, 0.759, 0.82, 0.88, 0.95, 0.99, 1.0]
@@ -154,7 +154,7 @@ def data(ex = ''):
         z = np.array([-0.615, -0.5, -0.385, -0.29, -0.27, -0.18, -0.15, -0.07, -0.035, 0.0])
        #Dense, loose sand
         
-    elif ex == 'saturation': #lab
+    elif ex == 'saturation': #(B. Liu et al., 2015)
         #P_norm [Pa/Pa], z_norm [m/m]
         #when varying the saturation degree
         aLowSat_x = [0.42, 0.47, 0.55, 0.63, 0.66, 0.74, 0.77, 0.89, 0.93, 1.0]

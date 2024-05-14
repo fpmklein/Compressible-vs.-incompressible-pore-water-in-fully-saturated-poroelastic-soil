@@ -175,7 +175,7 @@ def data(ex = ''):
 
         z = np.array([-0.615, -0.5, -0.385, -0.29, -0.27, -0.18, -0.15, -0.07, -0.035, 0.0])    
         #High, low saturation
-    else: #lab
+    else: #(B. Liu et al., 2015)
         #P_norm [Pa/Pa], z_norm [m/m]
         a = np.array([1.0, 0.95, 0.83, 0.8, 0.73, 0.7, 0.6, 0.55, 0.55, 0.5])
         b = np.array([0])

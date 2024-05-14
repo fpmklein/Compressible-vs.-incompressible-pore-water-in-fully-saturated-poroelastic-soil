@@ -118,12 +118,12 @@ def newS_1d(A, dA_eps, dA_P, B, dB_eps, C, dC_eps, lm, fnc, time_stop = 3.0, dt=
     Nrhs = copy.deepcopy(zero_vector)
 
     #Dirichlet boundary conditions   
-    #BC: P = Fzz at z=0
+    #BC: P = Fzz at z=0 in 1st eq
     Mnew[-1,:] = 0.0
     Mold[-1,:] = 0.0
     Mnew[-1,-1] = 1.0
 
-    #u_z = 0 at z=-n_z in 3rd eq
+    #u_z = 0 at z=-n_z in 2nd eq
     Neps[0,:] = 0.0
     Nuz[0,:] = 0.0
     Nuz[0, 0] = 1.0
@@ -150,8 +150,6 @@ def newS_1d(A, dA_eps, dA_P, B, dB_eps, C, dC_eps, lm, fnc, time_stop = 3.0, dt=
     num_elt_mid = 101 #boundary between two layers of soil, see assemble_fe_problem_2types in fem_functions_1d
     #start time for-loop
     for i in range(1,len(time_lst)):
-        t = i*dt + 56454
-        #if t>t_drop:
         Mrhs[-1] = P1_lst[i]*gamma_w
         S_old = copy.deepcopy(S)
         S = sp.sparse.linalg.spsolve(sM_new, Mrhs + sM_old.dot(S_old))

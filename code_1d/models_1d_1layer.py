@@ -116,12 +116,12 @@ def newS_1d(A, B, C, beta, K_s, gamma_w, p, mu, labda, fnc, time_stop = 3.0, dt=
     Nrhs = copy.deepcopy(zero_vector)
     
     #Dirichlet boundary conditions   
-    #BC: P = Fzz at z=0 in 2nd eq
+    #BC: P = Fzz at z=0 in 1st eq
     Mnew[-1,:] = 0.0
     Mold[-1,:] = 0.0
     Mnew[-1,-1] = 1.0
 
-    #BC: u_z = 0 at z=-n_z in 3rd eq
+    #BC: u_z = 0 at z=-n_z in 2nd eq
     Neps[0,:] = 0.0
     Nuz[0,:] = 0.0
     Nuz[0, 0] = 1.0

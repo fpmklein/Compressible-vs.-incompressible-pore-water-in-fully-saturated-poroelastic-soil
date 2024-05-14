@@ -6,5 +6,4 @@ poroelastic soil”, which is an extension of the recently published paper by My
   Ouden-Van der Horst can be found.
 - In directory 'code_2d' the codes for computing the numerical results to the two-dimensional model of Biot and the two-dimensional new model of Van Damme and Den
   Ouden-Van der Horst can be found.
-- In file 'load_stresses_density' the code is stated for making the transient hydraulic load, normal stress, shear stress and density of the soil more visually.
-  _Run this file for images._
+

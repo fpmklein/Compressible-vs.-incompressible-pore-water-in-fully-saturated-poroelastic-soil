@@ -3,6 +3,7 @@ from numpy.polynomial.legendre import leggauss as gaussquad
 from scipy.interpolate import _bspl as bspl
 import math
 
+#Create reference data
 def create_ref_data(neval, deg, integrate=False):
     # reference unit domain
     reference_element = np.array([0, 1])
@@ -37,6 +38,7 @@ def create_ref_data(neval, deg, integrate=False):
     }
     return reference_data
 
+#create finite element space
 def create_fe_space(deg, reg, mesh):
     def bezier_extraction(knt, deg):
         # breakpoints
@@ -122,6 +124,7 @@ def create_fe_space(deg, reg, mesh):
     }
     return space
 
+#Create a uniform mesh
 def create_mesh(brk):
     elt = np.vstack((brk[0:-1], brk[1:]))
     mesh = {'elements': elt,
@@ -161,14 +164,14 @@ def problem_rhs(z,Nj,dNj):
 def problem_drhs(z,Nj,dNj):
     return dNj
 
-#BC: P = f, at surface z=0
+#BC: P = F_zz, at surface z=0
 def f(t, Fc, beta):
     if t < np.pi:
         return (1.0-beta)*Fc*(1.0-np.cos(t))
     else:
         return (1.0-beta)*Fc*2.0
 
-#BC: P = f, at surface z=0
+#BC: P = F_zz, at surface z=0
 def f_lab(gamma_w=10**4, T=9, H=3.5, Nc = 10, D = 0):
     #T [s] wave period
     #H [m] wave height
@@ -292,7 +295,7 @@ def assemble_fe_problem_2types(mesh, space, ref_data, param_map, c, d):
     return A, dA_eps, dA_P, B, dB_uz, C, dC_uz
 
 
-#c = sum c_j N_j    
+#c = sum c_j N_j, 1 layer of soil    
 def sum_coeff(mesh, space ,ref_data, param_map, coeff):
     # retrieve data
     n = space['n']
@@ -323,6 +326,7 @@ def sum_coeff(mesh, space ,ref_data, param_map, coeff):
             z_lst[t,i] = z
     return coeff_sol, dcoeff_sol, z_lst
 
+#c = sum c_j N_j, 2 layers of soil
 def sum_coeff_2types(mesh, space ,ref_data, param_map, coeff, const):
     # retrieve data
     n = space['n']

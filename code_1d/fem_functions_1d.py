@@ -308,8 +308,9 @@ def sum_coeff(mesh, space ,ref_data, param_map, coeff):
     #initialize data
     step = np.shape(RB)[1]
     num_t = np.shape(coeff)[1]
-    coeff_sol = np.zeros((4,num_t,nel,step))
-    dcoeff_sol = np.zeros((4,num_t,nel,step))
+    num_var = np.shape(coeff)[0]
+    coeff_sol = np.zeros((num_var,num_t,nel,step))
+    dcoeff_sol = np.zeros((num_var,num_t,nel,step))
     z_lst = np.zeros((num_t, nel, step))
     for t in range(num_t): 
         for i in range(nel):

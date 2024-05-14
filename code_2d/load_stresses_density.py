@@ -2,6 +2,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import fem_functions_2d
+import matplotlib.patches as patches
 # importing movie py libraries
 from moviepy.editor import VideoClip
 from moviepy.video.io.bindings import mplfig_to_npimage
@@ -10,8 +11,8 @@ from moviepy.video.io.bindings import mplfig_to_npimage
 def plot_load_Fzz(t=92.25):
     x = np.linspace(0,1,51)
     gamma_w=10**4
-    load = fem_functions_2d.f_delt(t,x,gamma_w=gamma_w, T=9, H=3.5, Nc = 10, D=5.2)/gamma_w
-    load_0 = fem_functions_2d.f_delt(t,x,gamma_w=gamma_w, T=9, H=3.5, Nc = 10, D=0)/gamma_w
+    load = fem_functions_2d.f_lab(t,x,gamma_w=gamma_w, T=9, H=3.5, Nc = 10, D=5.2)/gamma_w
+    load_0 = fem_functions_2d.f_lab(t,x,gamma_w=gamma_w, T=9, H=3.5, Nc = 10, D=0)/gamma_w
     x_arrow = np.array([0, 0.5, 1])
     z_lst = np.cos(2.0*np.pi*x_arrow)
     c_lst = []
@@ -74,8 +75,8 @@ def plot_load_Fzz(t=92.25):
 def plot_load_pressure(t=92.25):
     x = np.linspace(0,1,51)
     gamma_w=10**4
-    load = fem_functions_2d.f_delt(t,x,gamma_w=gamma_w, T=9, H=3.5, Nc = 10, D=5.2)/gamma_w
-    load_0 = fem_functions_2d.f_delt(t,x,gamma_w=gamma_w, T=9, H=3.5, Nc = 10, D=0)/gamma_w
+    load = fem_functions_2d.f_lab(t,x,gamma_w=gamma_w, T=9, H=3.5, Nc = 10, D=5.2)/gamma_w
+    load_0 = fem_functions_2d.f_lab(t,x,gamma_w=gamma_w, T=9, H=3.5, Nc = 10, D=0)/gamma_w
     x_arrow = np.array([0, 0.5, 1])
     z_lst = np.cos(2.0*np.pi*x_arrow)
     c_lst = []
@@ -165,8 +166,8 @@ def movie_load():
                 d_lst += [0]
                 
         ax.clear()
-        load = fem_functions_2d.f_delt(t,x,gamma_w=gamma_w, T=T, H=3.5, Nc = Nc, D=5.2)/gamma_w
-        #load_s = fem_functions_2d.f_delt(t,x,gamma_w=gamma_w, T=T, H=3.5, Nc = Nc, D=0)/gamma_w    
+        load = fem_functions_2d.f_lab(t,x,gamma_w=gamma_w, T=T, H=3.5, Nc = Nc, D=5.2)/gamma_w
+        #load_s = fem_functions_2d.f_lab(t,x,gamma_w=gamma_w, T=T, H=3.5, Nc = Nc, D=0)/gamma_w    
         ax.plot(x,load, color='black')
         ax.plot(x,load, '--', color='firebrick')
         #ax.plot(x,load_s, '--', color='firebrick')
@@ -409,7 +410,7 @@ def plot_density():
 if __name__ == "__main__":
     plot_load_Fzz(2.25)
     plot_load_pressure(2.25)
-    movie_load()
+    #movie_load()
 
     plot_normal()
     plot_shear_Fxz()

@@ -417,6 +417,8 @@ if __name__ == "__main__":
     while data_name not in ['a', 'b', 'c', 'd']:
          data_name = input("\nNot possible. Choose again: a, b, c, or d: ")
     data_name = 'boat_'+ data_name
+
+    #Data set L. Zaat, Analyse meetdata kanaalafdichting met zbm, RWS, Tech. Rep., 2022
     
     #boat case
     if data_name == "boat_a":
